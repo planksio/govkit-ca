@@ -1,0 +1,25 @@
+name: Ruby Gem
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-push:
+    name: Build + Publish Ruby Gem
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        version: 2.6.x
+
+    - name: Publish Gem to Github Packages
+      uses: jstastny/publish-gem-to-github@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        owner: planksio
+        working-directory: lib/gov_kit-ca
