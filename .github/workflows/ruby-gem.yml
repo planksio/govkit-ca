@@ -22,4 +22,3 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         owner: planksio
-        working-directory: lib/gov_kit-ca
